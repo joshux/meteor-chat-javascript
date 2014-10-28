@@ -1,0 +1,26 @@
+<head>
+  <title>Welcome to Meteor chat</title>
+</head>
+
+<body>
+  <a href="http://github.com/joshux/meteor-chat-javascript">meteor chat</a>
+</body>
+
+<template name="layout">
+  <div class="container">
+    <header>
+      {{> yield region='header'}}
+    </header>
+
+    <section>
+      {{> yield}}
+    </section>
+
+    <footer>
+      <hr/>
+      <p class="">
+        Translated by Josh
+      </p>
+    </footer>
+  </div>
+</template>
