@@ -4,5 +4,13 @@
 # but you can also edit it by hand.
 
 meteor-platform
-autopublish
-insecure
+coffeescript
+fourseven:scss
+accounts-ui
+accounts-password
+accounts-github
+accounts-twitter
+iron:router
+mizzao:bootstrap-3
+multiply:iron-router-progress
+
