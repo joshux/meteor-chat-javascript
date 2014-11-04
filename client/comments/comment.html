@@ -1,7 +1,9 @@
 <template name="chatRoom">
-  {{#each comments}}
-    {{> commentBox}}
-  {{/each}}
+  <div class="comments">
+    {{#each comments}}
+      {{> commentBox}}
+    {{/each}}
+  </div>
 </template>
 
 <template name="chatRoomHeader">
@@ -16,6 +18,16 @@
   {{> commentInput}}
 </template>
 
+<template name="commentInput">
+  <section id="comment-input">
+    <p>Hi {{creatorName}} </p>
+    <p><textarea rows="1"></textarea></p>
+    <p class="text-right">
+      <button class="btn">Add a comment</button>
+    </p>
+  </section>
+</template>
+
 <template name="commentBox">
   <div class="comment">
     <p class="content {{mine}}" contenteditable="{{mine}}">{{content}}</p>
@@ -27,8 +39,4 @@
       <small>{{showTime updated_at}}</small>
     </div>
   </div>
-</template>
-
-<template name="commentInput">
-  
 </template>
