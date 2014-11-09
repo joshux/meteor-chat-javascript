@@ -12,10 +12,10 @@ this.Comments.allow({
   }
 });
 
-function NonEmptyString(x){
+var NonEmptyString = Match.Where(function(x){
   check(x,String);
   return x.length !== 0;
-}
+});
 
 Meteor.methods({
   createComment: function(content, ownerId){
@@ -25,6 +25,7 @@ Meteor.methods({
     Comments.insert({
       _id: commentId,
       owner: ownerId,
+      content: content,
       created_at: now,
       updated_at: now
     });

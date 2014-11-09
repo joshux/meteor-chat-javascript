@@ -17,5 +17,17 @@ Template.commentInput.events({
       Meteor.call('createComment',Session.get('content'),ownerId);
       $('.comments').scrollTop(0);
     }
+    template.$('textarea').val('');
+    Session.set('content','');
   }
-})
+});
+
+Template.commentInput.currentUserName = function() {
+  var currentUser;
+  currentUser = Meteor.user();
+  if (currentUser != null) {
+    return ", " + (displayName(currentUser));
+  } else {
+    return '';
+  }
+};
