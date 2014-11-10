@@ -20,7 +20,7 @@
 
 <template name="commentInput">
   <section id="comment-input">
-    <p>Hi {{currentUserName}} </p>
+    <p>Hi{{currentUserName}}</p>
     <p><textarea rows="1"></textarea></p>
     <p class="text-right">
       <button class="btn">Add a comment</button>
@@ -34,7 +34,7 @@
     <div>
       <small>{{creatorName owner}}</small>
       {{#if mine}}
-        <small><a>Remove</a></small>
+        <small><a class="remove">Remove</a></small>
       {{/if}}
       <small>{{showTime updated_at}}</small>
     </div>

@@ -25,9 +25,33 @@ Template.commentInput.events({
 Template.commentInput.currentUserName = function() {
   var currentUser;
   currentUser = Meteor.user();
-  if (currentUser != null) {
-    return ", " + (displayName(currentUser));
-  } else {
-    return '';
-  }
+  return !!currentUser ? ', '+displayName(currentUser) : '';
 };
+
+Template.chatRoom.comments = function(){
+  return Comments.find({},{sorted:{ created_at: -1 }});
+};
+
+Template.commentBox.mine = function(){
+  var userId = Meteor.userId();
+  return !!userId && userId === this.owner;
+};
+
+Template.commentBox.creatorName = function(id){
+  var creator = Meteor.users.findOne(id);
+  if(creator)
+    return displayName(creator);
+  else
+    return 'anonymous' + id;
+};
+
+Template.commentBox.showTime = function(time){
+  new Date(time).toLocaleString();
+};
+
+Template.commentBox.events({
+  'click .remove': function(){
+    Comments.remove(this._id);
+    return false;
+  }
+});
